@@ -20,7 +20,7 @@ yarn
 
 2.1 - o arquivo `.env` com base no arquivo `.env.example`
 
-2.2 - o arquivo com o nome `database.sqlite` dentro da pasta database da raiz do projecto
+2.2 - o arquivo com o nome `database.sqlite` dentro da pasta database da raiz do projecto, ou renomeio o `database.sqlite.example` para `database.sqlite`
 
 3 - Rode as migrations
 
