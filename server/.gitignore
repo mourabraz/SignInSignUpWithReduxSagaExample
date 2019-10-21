@@ -1,0 +1,9 @@
+node_modules
+.env
+
+tmp/*
+!tmp/.gitkeep
+
+dist
+
+database/database.sqlite
