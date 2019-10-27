@@ -6,13 +6,13 @@ Para a criação do projeto usou-se o [OmniCli](https://www.npmjs.com/package/@r
 
 1. O uso do redux para a autenticação, surge pelo fato de que vários componentes podem precisar de ter acesso aos dados do usuário autenticado. E esses diferentes componentes podem estar sendo exibidos simultaneamente;
 
-2. **A parte principal do exemplo é usar a autenticação com redux e com saga, dando uma pequena luz de como esta arquitectura funciona**;
+2. **A parte principal do exemplo é usar a autenticação com redux e com saga, dando uma pequena luz de como esta biblioteca (que segue a arquitectura flux) funciona**;
 
 3. O repositório está dividido em três partes: o [_backend_](./server) feito em Node; o [_frontend_](./web) feito em ReactJS e o [_mobile_](./mobile) com React-Native; e
 
 4. Para cada projecto deve consultar o respectivo README em cada um deles e seguir as instruções para a instalação e inicialização.
 
-# Motivação para o uso de uma Arquitectura Flux
+# Motivação para o uso de uma Arquitectura Flux (mais propriamente o Redux)
 
 Usando React, quer na web ou mobile, usa-se o sistema de componetização, ou seja, programamos as Views em forma de componentes, quer esteja exibindo apenas um, quer esteja exibindo diferentes componentes. Estes componentes organizam-se em uma estrutura de árvore como na figura abaixo.
 
@@ -40,6 +40,35 @@ A comunicação entre a View (componente) e o Store não funciona de forma dual,
 <img width="600" src="./redux-motivation-3.png"/>
 </p>
 
-## **(...em construção)**
+- Assim é possivel a View disparar as interações do usuário para a Store e, havendo alterações na Store, esta pode notificar específicas Views sobre esta mudança.
+- Este entendimento de como a comunicção entre as Views e o Store funciona está representado de forma simples.
 
-## A síntese sobre o reduz e o saga encontra-se no [README.md do frontend](/web/README.md)
+# **Redux**, biblioteca para gerenciamento de um State Global que assenta sobre a Arquitetura Flux
+
+Seguindo a arquitetura Flux, podemos simplificar e dividir o Redux em quatro camadas (partes):
+
+1. O Dispatcher (Reducers)
+2. As Actions
+3. O Store (no caso Redux - único e imutável)
+4. As Views (Components)
+
+## 1. Dispatcher
+
+Existe apenas um por aplicação e é, basicamente, um gerente de registros de callbacks e de eventos. O **Disparcher** recebe **Actions** e realiza a cópia do store, suas alterações e a substituição do store anterior pelo novo **Store**.
+
+## 2. Actions
+
+São objectos com pelo menos uma propriedade chamada `type` e pode, ou não, ter mais propriedades com diferentes tipos de dados, normalmente, terá mais um com o nome de `payload`.
+O `type` das Actions deve ser único por aplicação e ser o mais descritivo possível a fim de manter a legebilidade e entendimento de todo o fluxo de dados.
+
+## 3. Store
+
+É quem mantém os dados da aplicação. É único e imutável, todas as alterações ocorrem em uma cópia do state e este novo state com as alterações é quem substitui todo o state anterior. Não ocorre alterações no store, mas sim substituição do store anterior pelo novo. Também é responsável por notificar as mudanças ocorridas no estado dos dados ao seus subscritores (as **Views**, React Components)
+
+## 4. Views
+
+Recebe os dados para serem exibidos aos usuários e comunica **Actions** ao **Dispatcher** conforme a interação do usuário.
+
+## (ainda em construção)
+
+## A exemplificação sobre o redux e o saga encontra-se no [README.md do frontend](/web/README.md)

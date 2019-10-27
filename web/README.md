@@ -16,36 +16,6 @@ yarn
 yarn start
 ```
 
-# Redux
-
-Seguindo a arquitetura Flux, podemos simplificar e dividir o redux e quatro camadas (partes):
-
-1. O Dispatcher
-2. As Actions
-3. O Store
-4. As Views
-
-## 1. Dispatcher
-
-Existe apenas um por aplicação e é, basicamente, um gerente de registros de callbacks e de eventos. O **Disparcher** recebe **Actions** e estas são encaminhadas para o **Store**.
-
-## 2. Actions
-
-São objectos com pelo menos uma propriedade chamada `type` e pode, ou não, ter mais propriedades com diferentes tipos de dados, normalmente, terá mais um com o nome de `payload`.
-O `type` das Actions deve ser único por aplicação e ser o mais descritivo possível a fim de manter a legebilidade e entendimento de todo o fluxo de dados.
-
-## 3. Store
-
-É quem mantém os dados da aplicação. Recebe as **Actions** do **Dispatcher** e altera o estado dos dados conforme o caso. Também é responsável por notificar as mudanças ocorridas no estado dos dados ao seus subscritores (normalmente as **Views**)
-
-## 4. Views
-
-Recebe os dados para serem exibidos aos usuários e comunica **Actions** ao **Dispatcher** conforme a interação do usuário.
-
-## Quando usar Redux?
-
-_(a fazer)_
-
 ## E o Saga
 
 O redux-saga é uma biblioteca extra no funcionamento/uso do Redux. Ela serve como um _middleware_ para a realização de "tarefas" com _side-effetcs_. Performa "tarefas" assíncronas como CRUD, manipulação de arquivos... Possui total integração com o estado global da aplicação que é gerenciado pelo Redux e pode enviar **Actions** para o **Dispatcher**.
