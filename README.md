@@ -63,11 +63,16 @@ O `type` das Actions deve ser único por aplicação e ser o mais descritivo pos
 
 ## 3. Store
 
-É quem mantém os dados da aplicação. É único e imutável, todas as alterações ocorrem em uma cópia do state e este novo state com as alterações é quem substitui todo o state anterior. Não ocorre alterações no store, mas sim substituição do store anterior pelo novo. Também é responsável por notificar as mudanças ocorridas no estado dos dados ao seus subscritores (as **Views**, React Components)
+É quem mantém os dados da aplicação. É **único e imutável**, todas as alterações ocorrem em uma cópia do *state* e este novo *state* com as alterações é quem substitui todo o *state* anterior. Não ocorre alterações no *store*, mas sim substituição do *store* anterior pelo novo. Também é responsável por notificar as mudanças ocorridas no estado dos dados ao seus subscritores (as **Views**, React Components)
 
 ## 4. Views
 
 Recebe os dados para serem exibidos aos usuários e comunica **Actions** ao **Dispatcher** conforme a interação do usuário.
+
+
+<p align="center">
+<img width="400" src="./ciclo-redux.png"/>
+</p>
 
 ## (ainda em construção)
 
